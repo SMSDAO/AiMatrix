@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Global Reset & Immersive Backdrop */
+html, body {
+  background-color: #030303;
+  color: #e2e8f0;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Cyber Animations */
+
+/* 1. Seamlessly shifting multi-colored gradient border wrapper */
+@keyframes flowGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 2. Slow breathing background blur blob */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1) translate(0px, 0px);
+    filter: blur(80px);
+    opacity: 0.65;
+  }
+  33% {
+    transform: scale(1.15) translate(30px, -20px);
+    filter: blur(100px);
+    opacity: 0.8;
+  }
+  66% {
+    transform: scale(0.9) translate(-25px, 35px);
+    filter: blur(75px);
+    opacity: 0.7;
+  }
+}
+
+/* 3. High freq subtle neural line flicker */
+@keyframes signalFlicker {
+  0% { opacity: 0.98; }
+  12% { opacity: 0.85; }
+  14% { opacity: 0.99; }
+  35% { opacity: 0.91; }
+  37% { opacity: 0.99; }
+  64% { opacity: 0.94; }
+  65% { opacity: 0.70; }
+  68% { opacity: 0.99; }
+  92% { opacity: 0.88; }
+  94% { opacity: 0.99; }
+}
+
+/* 4. Scanning horizontal matrix bar */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Theme Classes */
+.cyber-bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Animated Flow Glow Border Wrapper - PURPLE BLUE GREEN ORANGE RED */
+.flow-glow-border {
+  background: linear-gradient(
+    90deg,
+    #a855f7, /* Purple */
+    #3b82f6, /* Blue */
+    #10b981, /* Green */
+    #f97316, /* Orange */
+    #ef4444, /* Red */
+    #a855f7  /* Loop to Purple */
+  );
+  background-size: 400% 400%;
+  animation: flowGlow 8s ease infinite;
+}
+
+/* Background Animated Backdrop Blurs for absolute cyber depth */
+.cyber-glow-blob-purple {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+}
+.cyber-glow-blob-blue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+}
+.cyber-glow-blob-green {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+}
+.cyber-glow-blob-orange {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+}
+.cyber-glow-blob-red {
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 70%);
+}
+
+.pulsate-glow {
+  animation: pulseGlow 15s ease-in-out infinite alternate;
+}
+
+.neural-flicker {
+  animation: signalFlicker 6s infinite;
+}
+
+/* Scanline Effect Overlay */
+.scanline-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.flowing-scanline {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.35), transparent);
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Custom Scrollbars for ultimate luxury code/result boxes */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Markdown-body Custom Gloss styling */
+.markdown-body {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.625;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  font-weight: 600;
+  color: #f1f5f9;
+  font-family: var(--font-display);
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.markdown-body h1 { font-size: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 0.25rem; }
+.markdown-body h2 { font-size: 1.25rem; }
+.markdown-body h3 { font-size: 1.1rem; }
+.markdown-body p { margin-bottom: 1rem; color: #cbd5e1; }
+.markdown-body ul, .markdown-body ol { margin-left: 1.5rem; margin-bottom: 1rem; list-style-type: square; }
+.markdown-body li { margin-bottom: 0.35rem; color: #cbd5e1; }
+.markdown-body table { width: 100%; border-collapse: collapse; margin-block: 1rem; font-size: 0.85rem; }
+.markdown-body th { background: #18181b; padding: 0.5rem 0.75rem; border: 1px solid #27272a; color: #3b82f6; font-weight: 600; text-align: left; }
+.markdown-body td { padding: 0.5rem 0.75rem; border: 1px solid #27272a; color: #e2e8f0; }
+.markdown-body blockquote { border-left: 4px solid #3b82f6; background: rgba(59, 130, 246, 0.05); padding: 0.5rem 1rem; color: #94a3b8; font-style: italic; margin-bottom: 1rem; }
+.markdown-body code { background: rgba(255, 255, 255, 0.08); font-family: var(--font-mono); padding: 0.125rem 0.25rem; border-radius: 4px; font-size: 0.85em; color: #f43f5e; }
+.markdown-body pre { background: #09090b; border: 1px solid #27272a; padding: 1rem; border-radius: 6px; overflow-x: auto; margin-bottom: 1rem; }
+.markdown-body pre code { background: none; padding: 0; border-radius: 0; font-size: 0.85rem; color: #e2e8f0; }

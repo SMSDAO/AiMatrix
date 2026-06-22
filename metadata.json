@@ -1,0 +1,6 @@
+{
+  "name": "Enterprise Cyber Prompt Hub",
+  "description": "An ultra-polished, visually striking prompt engine featuring flashing multi-color cyber glow flows, an extensive slide-out enterprise command panel, and a unified server-side Gemini AI orchestration suite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
